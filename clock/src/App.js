@@ -1,11 +1,35 @@
+import React from 'react';
 import './App.css';
+class App extends React.Component {
+  state = {
+    second: 0,
+    hour: 0,
+    minute: 0
+  };
+  componentDidMount() {
+    setInterval( ()=> {
+      this.getTime();
+    },1000
+    )
+  }
+  getTime = () => {
+    var today = new Date();
 
-function App() {
-  return (    
-    <div className="clock">
-      <div className='hand hour'></div>
-      <div className='hand minute'></div>
-      <div className='hand second'></div>
+    let second = today.getSeconds()/60;
+    let minute = (second + today.getMinutes())/60;
+    let hour = (minute + today.getHours()) / 12;
+
+    this.setState({ second });
+    this.setState({ hour });
+    this.setState({ minute });
+  };
+  render(){
+    const {second, hour, minute} = this.state;
+    return (
+      <div className="clock">
+      <div className='hand hour' style={{transform:`rotate(${hour*360}deg)`}}></div>
+      <div className='hand minute' style={{transform:`rotate(${minute*366}deg)`}}></div>
+      <div className='hand second' style={{transform:`rotate(${second*366}deg)`}}></div>
 
         <div className='number number1'>1</div>
         <div className='number number2'>2</div>
@@ -21,7 +45,7 @@ function App() {
         <div className='number number12'>12</div>
 
     </div>
-  );
+    );
+  }
 }
-
 export default App;
