@@ -1,2 +1,2 @@
-# Analog-and-Digital-clock
-Analog and Digital clock using react
+# Analog-clock
+Analog clock using react
