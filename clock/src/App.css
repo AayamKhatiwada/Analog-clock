@@ -9,9 +9,11 @@
   height: 300px;
   border-radius: 50%;
   border: 1px solid;
+  /* changing the color form left too right */
   background: linear-gradient(to right, rgb(255, 60, 0),rgb(255, 0, 0));
 }
 
+/* for all the numbers of the clock */
 .clock .number{
   --rotate:0;
   position: absolute;
@@ -19,10 +21,12 @@
   height: 300px;
   padding: 10px;
   text-align: center;
+  /* creating the variable so that every numbers have differnet values */
   transform: rotate(var(--rotate));
   font-size: 1.5rem;
 }
 
+  /* rotating the number to fit inside the clock */
 .clock .number1{ --rotate: 30deg;}
 .clock .number2{ --rotate: 60deg;}
 .clock .number3{ --rotate: 90deg;}
